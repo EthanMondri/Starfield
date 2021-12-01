@@ -38,6 +38,22 @@ class Particle
   {
     x += Math.cos(an)*sp;
     y += Math.sin(an)*sp;
+    if (x >= width)
+    {
+      x = 0;
+    }
+    else if (x <= 0)
+    {
+      x = width;
+    }
+    else if (y >= height)
+    {
+      y = 0;
+    }
+    else if (y <= 0)
+    {
+      y = height;
+    }
   }
   void show()
   {
@@ -54,5 +70,30 @@ class OddballParticle extends Particle
     cl = color(255, 255, 255);
     x = width/2;
     y = height/2;
+  }
+  void move()
+  {
+    x += Math.cos(an)*sp;
+    y += Math.sin(an)*sp;
+    if (x >= width)
+    {
+      x = width;
+      an = (int)(Math.random()*361);
+    }
+    else if (x <= 0)
+    {
+      x = 0;
+      an = (int)(Math.random()*361);
+    }
+    else if (y >= height)
+    {
+      y = height;
+      an = (int)(Math.random()*361);
+    }
+    else if (y <= 0)
+    {
+      y = 0;
+      an = (int)(Math.random()*361);
+    }
   }
 }
